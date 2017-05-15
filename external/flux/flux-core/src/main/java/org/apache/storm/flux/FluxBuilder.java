@@ -198,6 +198,9 @@ public class FluxBuilder {
             if (boltDef.getCpuLoad() > -1) {
                 declarer.setCPULoad(boltDef.getCpuLoad());
             }
+            if (boltDef.getNumTasks() > -1) {
+                declarer.setNumTasks(boltDef.getNumTasks());
+            }
 
             GroupingDef grouping = stream.getGrouping();
             // if the streamId is defined, use it for the grouping, otherwise assume storm's default stream
@@ -389,6 +392,9 @@ public class FluxBuilder {
             }
             if (sd.getCpuLoad() > -1) {
                 declarer.setCPULoad(sd.getCpuLoad());
+            }
+            if (sd.getNumTasks() > -1) {
+                declarer.setNumTasks(sd.getNumTasks());
             }
 
             context.addSpout(sd.getId(), spout);

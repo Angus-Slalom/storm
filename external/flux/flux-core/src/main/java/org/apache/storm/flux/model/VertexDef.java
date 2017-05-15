@@ -23,8 +23,9 @@ package org.apache.storm.flux.model;
  */
 public abstract class VertexDef extends BeanDef {
 
-    // default parallelism to 1 so if it's ommitted, the topology will still function.
+    // default parallelism to 1 so if it's omitted, the topology will still function.
     private int parallelism = 1;
+    private int numTasks = -1;
     private int onHeapMemoryLoad = -1;
     private int offHeapMemoryLoad = -1;
     private int cpuLoad = -1;
@@ -35,6 +36,14 @@ public abstract class VertexDef extends BeanDef {
 
     public void setParallelism(int parallelism) {
         this.parallelism = parallelism;
+    }
+
+    public int getNumTasks() {
+        return numTasks;
+    }
+
+    public void setNumTasks(int numTasks) {
+        this.numTasks = numTasks;
     }
 
     public int getOnHeapMemoryLoad() {
